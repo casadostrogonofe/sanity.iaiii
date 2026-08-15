@@ -1,0 +1,1456 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 140
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Título"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Turismo · Motéis",
+              "value": "turismo/moteis"
+            },
+            {
+              "title": "Turismo · Hotéis",
+              "value": "turismo/hoteis"
+            },
+            {
+              "title": "Turismo · Pousadas",
+              "value": "turismo/pousadas"
+            },
+            {
+              "title": "Bem Estar · Beleza",
+              "value": "bem-estar/beleza"
+            },
+            {
+              "title": "Bem Estar · Cultura",
+              "value": "bem-estar/cultura"
+            },
+            {
+              "title": "Bem Estar · Saúde",
+              "value": "bem-estar/saude"
+            },
+            {
+              "title": "Bem Estar · Horóscopo",
+              "value": "bem-estar/horoscopo"
+            },
+            {
+              "title": "Bem Estar · Sexualidade",
+              "value": "bem-estar/sexualidade"
+            },
+            {
+              "title": "Bem Estar · Contos Eróticos",
+              "value": "bem-estar/contos"
+            },
+            {
+              "title": "Vida Noturna · Locais",
+              "value": "vida-noturna/locais"
+            },
+            {
+              "title": "Vida Noturna · Vinhos",
+              "value": "vida-noturna/vinhos"
+            },
+            {
+              "title": "Vida Noturna · Charutos",
+              "value": "vida-noturna/charutos"
+            },
+            {
+              "title": "Vida Noturna · Música",
+              "value": "vida-noturna/musica"
+            },
+            {
+              "title": "Vida Noturna · Artistas",
+              "value": "vida-noturna/artistas"
+            },
+            {
+              "title": "Vida Noturna · Zetta Records",
+              "value": "vida-noturna/artistas/zetta-records"
+            },
+            {
+              "title": "Gastronomia · Culinária",
+              "value": "gastronomia/culinaria"
+            },
+            {
+              "title": "Gastronomia · Arte",
+              "value": "gastronomia/arte"
+            },
+            {
+              "title": "Gastronomia · Sabor",
+              "value": "gastronomia/sabor"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "turismo/moteis",
+                  "turismo/hoteis",
+                  "turismo/pousadas",
+                  "bem-estar/beleza",
+                  "bem-estar/cultura",
+                  "bem-estar/saude",
+                  "bem-estar/horoscopo",
+                  "bem-estar/sexualidade",
+                  "bem-estar/contos",
+                  "vida-noturna/locais",
+                  "vida-noturna/vinhos",
+                  "vida-noturna/charutos",
+                  "vida-noturna/musica",
+                  "vida-noturna/artistas",
+                  "vida-noturna/artistas/zetta-records",
+                  "gastronomia/culinaria",
+                  "gastronomia/arte",
+                  "gastronomia/sabor"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "path",
+        "type": "string",
+        "title": "Editoria"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 280
+              }
+            ]
+          }
+        ],
+        "name": "excerpt",
+        "type": "text",
+        "title": "Chamada"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Aparece como capa quando não houver vídeo.",
+        "name": "mainImage",
+        "type": "image",
+        "title": "Imagem de capa"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "description": "Cole a URL do YouTube, Vimeo ou um link direto .mp4.",
+        "name": "videoUrl",
+        "type": "url",
+        "title": "Vídeo de capa (link YouTube / Vimeo / MP4)"
+      },
+      {
+        "options": {
+          "accept": "video/mp4,video/webm,video/quicktime"
+        },
+        "description": "Faça upload de um arquivo .mp4 / .webm. Se preencher os dois, o upload tem prioridade.",
+        "name": "videoFile",
+        "type": "file",
+        "title": "Vídeo de capa (upload — alternativa ao link)"
+      },
+      {
+        "of": [
+          {
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "level": "error",
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "of": [],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "type": "block"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "type": "image"
+          }
+        ],
+        "name": "body",
+        "type": "array",
+        "title": "Corpo"
+      },
+      {
+        "description": "Selecione um Editor já cadastrado. Para criar novo, vá em \"Editor / Colunista\" e crie. Esse autor passa a ser exibido na matéria.",
+        "to": [
+          {
+            "type": "editor"
+          }
+        ],
+        "name": "editor",
+        "type": "reference",
+        "title": "Autor (escolha do banco de Editores)"
+      },
+      {
+        "description": "OPCIONAL. Use somente se quiser sobrescrever o autor sem cadastrar um Editor.",
+        "name": "authorName",
+        "type": "string",
+        "title": "Autor (texto livre — fallback)"
+      },
+      {
+        "name": "publishedAt",
+        "type": "datetime",
+        "title": "Publicado em"
+      },
+      {
+        "initialValue": 6,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              },
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ]
+          }
+        ],
+        "name": "readTime",
+        "type": "number",
+        "title": "Tempo de leitura (min)"
+      },
+      {
+        "initialValue": false,
+        "name": "featured",
+        "type": "boolean",
+        "title": "Destacar em capa"
+      },
+      {
+        "name": "sign",
+        "type": "string",
+        "title": "Signo (Horóscopo)"
+      },
+      {
+        "initialValue": false,
+        "name": "adult",
+        "type": "boolean",
+        "title": "Adulto 18+"
+      }
+    ],
+    "name": "article",
+    "type": "document",
+    "title": "Matéria"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Para você identificar (ex: 'Make Life — Janeiro')",
+        "name": "name",
+        "type": "string",
+        "title": "Nome interno"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Arranha-céu · 120 × 600",
+              "value": "skyscraper"
+            },
+            {
+              "title": "Arranha-céu Largo · 160 × 600",
+              "value": "wide-skyscraper"
+            },
+            {
+              "title": "Banner · 468 × 60",
+              "value": "banner"
+            },
+            {
+              "title": "Banner Grande Mobile · 320 × 100",
+              "value": "large-mobile-banner"
+            },
+            {
+              "title": "Banner Vertical · 120 × 240",
+              "value": "vertical-banner"
+            },
+            {
+              "title": "Botão · 125 × 125",
+              "value": "button"
+            },
+            {
+              "title": "Cabeçalho · 728 × 90",
+              "value": "leaderboard"
+            },
+            {
+              "title": "Cabeçalho Grande · 970 × 90",
+              "value": "large-leaderboard"
+            },
+            {
+              "title": "Cabeçalho Mobile · 320 × 50",
+              "value": "mobile-leaderboard"
+            },
+            {
+              "title": "Meia-página · 300 × 600",
+              "value": "half-page"
+            },
+            {
+              "title": "Meio-banner · 234 × 60",
+              "value": "half-banner"
+            },
+            {
+              "title": "Outdoor · 970 × 250",
+              "value": "billboard"
+            },
+            {
+              "title": "Quadrado · 250 × 250",
+              "value": "square"
+            },
+            {
+              "title": "Quadrado Pequeno · 200 × 200",
+              "value": "small-square"
+            },
+            {
+              "title": "Retângulo Pequeno · 180 × 150",
+              "value": "small-rectangle"
+            },
+            {
+              "title": "Retângulo Médio · 300 × 250",
+              "value": "medium-rectangle"
+            },
+            {
+              "title": "Retângulo Grande · 336 × 280",
+              "value": "large-rectangle"
+            },
+            {
+              "title": "Retrato · 300 × 1050",
+              "value": "portrait"
+            }
+          ],
+          "layout": "dropdown"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "skyscraper",
+                  "wide-skyscraper",
+                  "banner",
+                  "large-mobile-banner",
+                  "vertical-banner",
+                  "button",
+                  "leaderboard",
+                  "large-leaderboard",
+                  "mobile-leaderboard",
+                  "half-page",
+                  "half-banner",
+                  "billboard",
+                  "square",
+                  "small-square",
+                  "small-rectangle",
+                  "medium-rectangle",
+                  "large-rectangle",
+                  "portrait"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Escolha o tamanho. Cada formato aparece em posições específicas do site.",
+        "name": "format",
+        "type": "string",
+        "title": "Formato (tamanho IAB)"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Sidebar de Parceiros (direita)",
+              "value": "sidebar"
+            },
+            {
+              "title": "Entre matérias da Timeline (Home)",
+              "value": "timeline_inline"
+            },
+            {
+              "title": "Início da editoria (faixa horizontal)",
+              "value": "section_inline"
+            },
+            {
+              "title": "Fim da editoria (faixa antes do Newsletter)",
+              "value": "section_footer"
+            },
+            {
+              "title": "Topo do Shop",
+              "value": "shop_top"
+            },
+            {
+              "title": "Dentro da grade do Shop",
+              "value": "shop_grid"
+            },
+            {
+              "title": "Lifestyle · destaque grande",
+              "value": "lifestyle_premium"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "sidebar",
+                  "timeline_inline",
+                  "section_inline",
+                  "section_footer",
+                  "shop_top",
+                  "shop_grid",
+                  "lifestyle_premium"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Posição na página. O sistema escolhe automaticamente, mas você pode forçar.",
+        "name": "placement",
+        "type": "string",
+        "title": "Onde aparece no site"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Faça upload da peça já no formato escolhido acima.",
+        "name": "image",
+        "type": "image",
+        "title": "Imagem do banner"
+      },
+      {
+        "description": "Nome do parceiro/empresa",
+        "name": "sponsor",
+        "type": "string",
+        "title": "Anunciante"
+      },
+      {
+        "name": "headline",
+        "type": "string",
+        "title": "Título"
+      },
+      {
+        "rows": 2,
+        "name": "description",
+        "type": "text",
+        "title": "Descrição curta"
+      },
+      {
+        "initialValue": "Saiba mais",
+        "name": "cta",
+        "type": "string",
+        "title": "Texto do botão (CTA)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "link",
+        "type": "url",
+        "title": "Link de destino (URL completa)"
+      },
+      {
+        "initialValue": true,
+        "name": "active",
+        "type": "boolean",
+        "title": "Ativo (mostrar no site)"
+      },
+      {
+        "initialValue": 50,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 1000
+              }
+            ]
+          }
+        ],
+        "description": "Quanto maior, mais cedo aparece (ex: 100 vem antes de 50). Empate é aleatório.",
+        "name": "priority",
+        "type": "number",
+        "title": "Prioridade"
+      },
+      {
+        "name": "startsAt",
+        "type": "datetime",
+        "title": "Começa em (opcional)"
+      },
+      {
+        "name": "endsAt",
+        "type": "datetime",
+        "title": "Termina em (opcional)"
+      }
+    ],
+    "name": "ad",
+    "type": "document",
+    "title": "Publicidade (Banner)"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Nome"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "logo",
+        "type": "image"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "link",
+        "type": "url",
+        "title": "Link de destino"
+      },
+      {
+        "initialValue": "#ffffff",
+        "description": "Ex: #ffffff (branco) ou #1c4eaa (azul)",
+        "name": "backgroundColor",
+        "type": "string",
+        "title": "Cor de fundo do logo (hex)"
+      },
+      {
+        "initialValue": true,
+        "name": "active",
+        "type": "boolean",
+        "title": "Ativo"
+      },
+      {
+        "initialValue": 50,
+        "name": "priority",
+        "type": "number",
+        "title": "Ordem de exibição"
+      }
+    ],
+    "name": "partner",
+    "type": "document",
+    "title": "Parceiro (Sidebar)"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Nome"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Zetta Records",
+              "value": "zetta-records"
+            },
+            {
+              "title": "Independente",
+              "value": "independente"
+            }
+          ]
+        },
+        "description": "Ex: Zetta Records, Independente, Sony…",
+        "name": "label",
+        "type": "string",
+        "title": "Selo (label)"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "photo",
+        "type": "image",
+        "title": "Foto"
+      },
+      {
+        "rows": 4,
+        "name": "bio",
+        "type": "text",
+        "title": "Biografia"
+      },
+      {
+        "name": "genre",
+        "type": "string",
+        "title": "Gênero musical"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "description": "Ex: https://www.instagram.com/seu_perfil",
+        "name": "instagram",
+        "type": "url",
+        "title": "Instagram (URL)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "spotify",
+        "type": "url",
+        "title": "Spotify (URL)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "soundcloud",
+        "type": "url",
+        "title": "SoundCloud (URL)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "youtube",
+        "type": "url",
+        "title": "YouTube (URL)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "tiktok",
+        "type": "url",
+        "title": "TikTok (URL)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "site",
+        "type": "url",
+        "title": "Site oficial (URL)"
+      },
+      {
+        "initialValue": false,
+        "name": "featured",
+        "type": "boolean",
+        "title": "Destacar"
+      },
+      {
+        "initialValue": true,
+        "name": "active",
+        "type": "boolean",
+        "title": "Ativo"
+      },
+      {
+        "initialValue": 50,
+        "name": "priority",
+        "type": "number",
+        "title": "Ordem"
+      }
+    ],
+    "name": "artist",
+    "type": "document",
+    "title": "Artista"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Nome"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "description": "Ex: Editora de Sexualidade, Colunista de Vinhos…",
+        "name": "role",
+        "type": "string",
+        "title": "Editoria/Cargo"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Foto principal — usada no card de Reels e no perfil do editor.",
+        "name": "photo",
+        "type": "image",
+        "title": "Foto/avatar"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Imagem horizontal 2100×700 (proporção 3:1) — aparece no carrossel do topo da editoria escolhida abaixo.",
+        "name": "banner",
+        "type": "image",
+        "title": "Banner editorial"
+      },
+      {
+        "rows": 3,
+        "name": "bio",
+        "type": "text",
+        "title": "Bio curta"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "description": "Ex: https://www.instagram.com/seu_perfil",
+        "name": "instagram",
+        "type": "url",
+        "title": "Instagram (URL)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "description": "Se preencher, este reel específico é mostrado dentro do card. Se vazio, mostra a foto + link para o perfil.",
+        "name": "instagramReelUrl",
+        "type": "url",
+        "title": "Link do Reels mais recente (opcional)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "twitter",
+        "type": "url",
+        "title": "Twitter/X (URL)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "tiktok",
+        "type": "url",
+        "title": "TikTok (URL)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "youtube",
+        "type": "url",
+        "title": "YouTube (URL)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "site",
+        "type": "url",
+        "title": "Site/portfolio (URL)"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Turismo (geral)",
+              "value": "turismo"
+            },
+            {
+              "title": "Turismo · Motéis",
+              "value": "turismo/moteis"
+            },
+            {
+              "title": "Turismo · Hotéis",
+              "value": "turismo/hoteis"
+            },
+            {
+              "title": "Turismo · Pousadas",
+              "value": "turismo/pousadas"
+            },
+            {
+              "title": "Bem Estar (geral)",
+              "value": "bem-estar"
+            },
+            {
+              "title": "Bem Estar · Beleza",
+              "value": "bem-estar/beleza"
+            },
+            {
+              "title": "Bem Estar · Cultura",
+              "value": "bem-estar/cultura"
+            },
+            {
+              "title": "Bem Estar · Saúde",
+              "value": "bem-estar/saude"
+            },
+            {
+              "title": "Bem Estar · Horóscopo",
+              "value": "bem-estar/horoscopo"
+            },
+            {
+              "title": "Bem Estar · Sexualidade",
+              "value": "bem-estar/sexualidade"
+            },
+            {
+              "title": "Bem Estar · Contos Eróticos",
+              "value": "bem-estar/contos"
+            },
+            {
+              "title": "Vida Noturna (geral)",
+              "value": "vida-noturna"
+            },
+            {
+              "title": "Vida Noturna · Locais",
+              "value": "vida-noturna/locais"
+            },
+            {
+              "title": "Vida Noturna · Vinhos",
+              "value": "vida-noturna/vinhos"
+            },
+            {
+              "title": "Vida Noturna · Charutos",
+              "value": "vida-noturna/charutos"
+            },
+            {
+              "title": "Vida Noturna · Música",
+              "value": "vida-noturna/musica"
+            },
+            {
+              "title": "Vida Noturna · Artistas",
+              "value": "vida-noturna/artistas"
+            },
+            {
+              "title": "Gastronomia (geral)",
+              "value": "gastronomia"
+            },
+            {
+              "title": "Gastronomia · Culinária",
+              "value": "gastronomia/culinaria"
+            },
+            {
+              "title": "Gastronomia · Arte",
+              "value": "gastronomia/arte"
+            },
+            {
+              "title": "Gastronomia · Sabor",
+              "value": "gastronomia/sabor"
+            }
+          ]
+        },
+        "description": "Selecione todas as editorias em que este editor deve aparecer (banner + card de Reels).",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "sections",
+        "type": "array",
+        "title": "Editorias (onde o banner aparece)"
+      },
+      {
+        "initialValue": true,
+        "name": "active",
+        "type": "boolean",
+        "title": "Ativo"
+      },
+      {
+        "initialValue": 50,
+        "name": "priority",
+        "type": "number",
+        "title": "Ordem (maior = aparece primeiro)"
+      }
+    ],
+    "name": "editor",
+    "type": "document",
+    "title": "Editor / Colunista"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              },
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "description": "Cole a URL HTTPS pública da faixa, playlist ou perfil usado na rádio.",
+        "name": "soundcloudUrl",
+        "type": "url",
+        "title": "URL da rádio SoundCloud"
+      }
+    ],
+    "name": "siteSettings",
+    "type": "document",
+    "title": "Configurações do site"
+  }
+]
